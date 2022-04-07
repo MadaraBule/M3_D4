@@ -24,7 +24,7 @@ fetch("https://striveschool-api.herokuapp.com/books", { method: "GET" })
         removeCard.forEach(card => {
             card.addEventListener("click", function (e) {
                 if (e.target.id === "addCart") {
-                    row2.appendChild(card)
+                    row2.appendChild(card);
                 } else if (e.target.id === "skip") {
                     card.remove()
                 }
@@ -32,4 +32,3 @@ fetch("https://striveschool-api.herokuapp.com/books", { method: "GET" })
         })
     })
     .catch(err => console.log(err))
-

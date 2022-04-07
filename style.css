@@ -1,6 +1,31 @@
 body {
     background-color: #343434;
 }
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+.searchPanel {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#search {
+border-radius: 20px;
+width: 100%;
+}
+.searchButton {
+    border-radius: 20px;
+    background-color: #696868;
+}
+#cartButton {
+    width: 100%;
+    background-color: rgb(20, 20, 20);
+    border: solid 2px #555555;
+}
 #book-holder {
     margin: 0%;
    display: flex;
@@ -9,6 +34,7 @@ body {
 #the-books {
     margin-bottom: 30px;
     background-color: rgb(158, 151, 151);
+    width: 300px;
 }
 #book-holder2 {
     margin: 0%;
