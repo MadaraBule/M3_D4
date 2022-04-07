@@ -14,16 +14,17 @@ fetch("https://striveschool-api.herokuapp.com/books", { method: "GET" })
                                                     <h5 class="card-title">${books.title}</h5>
                                                     <p class="card-text">€ ${books.price}</p>
                                                     <p class="card-text">${books.category}</a>
-                                                    <button type="button" id="addCart" class="btn btn-light">Add to Cart</button>
-                                                    <button type="button" id="skip" class="btn btn-light">Skip</button>
+                                                    <button type="button" id="addCart" class="btn btn-dark">Add to Cart</button>
+                                                    <button type="button" id="skip" class="btn btn-danger">Skip</button>
                                                 </div>
                                         </div>
                                     </div>`)
         let removeCard = document.querySelectorAll(".card")
+        let row2 = document.querySelector(".row2")
         removeCard.forEach(card => {
             card.addEventListener("click", function (e) {
                 if (e.target.id === "addCart") {
-                    console.log("added to cart")
+                    row2.appendChild(card)
                 } else if (e.target.id === "skip") {
                     card.remove()
                 }
