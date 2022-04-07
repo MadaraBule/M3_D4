@@ -10,3 +10,8 @@ body {
     margin-bottom: 30px;
     background-color: rgb(158, 151, 151);
 }
+#book-holder2 {
+    margin: 0%;
+   display: flex;
+   justify-content: space-between;
+}
