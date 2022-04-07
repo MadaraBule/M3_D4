@@ -1,4 +1,5 @@
 body {
+    overflow-x: hidden;
     background-color: #343434;
 }
 label {

@@ -3,7 +3,7 @@ fetch("https://striveschool-api.herokuapp.com/books", { method: "GET" })
     .then(books => {
         console.log(books);
 
-        const row = document.querySelector(".row")
+        const row = document.querySelector(".row3")
 
         row.innerHTML = books
             .map(books => `
@@ -14,8 +14,8 @@ fetch("https://striveschool-api.herokuapp.com/books", { method: "GET" })
                                                     <h5 class="card-title">${books.title}</h5>
                                                     <p class="card-text">€ ${books.price}</p>
                                                     <p class="card-text">${books.category}</a>
-                                                    <button type="button" id="addCart" class="btn btn-dark">Add to Cart</button>
-                                                    <button type="button" id="skip" class="btn btn-danger">Skip</button>
+                                                    <button type="button" class="btn btn-dark addCart">Add to Cart</button>
+                                                    <button type="button"  class="btn btn-danger skip">Skip</button>
                                                 </div>
                                         </div>
                                     </div>`)
@@ -27,10 +27,13 @@ fetch("https://striveschool-api.herokuapp.com/books", { method: "GET" })
         let row2 = document.querySelector(".row2")
         removeCard.forEach(card => {
             card.addEventListener("click", function (e) {
-                if (e.target.id === "addCart") {
-                    row2.appendChild(card);
-                } else if (e.target.id === "skip") {
-                    card.remove()
+                console.log("target", e.target)
+                console.log("currentTarget", e.currentTarget)
+                if (e.target.classList.contains("addCart")) {
+                    const copy = card.cloneNode(true)
+                    row2.appendChild(copy);
+                } else if (e.target.classList.contains("skip")) {
+                    e.currentTarget.remove()
                 }
             })
         })
