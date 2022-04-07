@@ -19,6 +19,10 @@ fetch("https://striveschool-api.herokuapp.com/books", { method: "GET" })
                                                 </div>
                                         </div>
                                     </div>`)
+            .join("")
+        //search thing
+
+        //crt and skip buttons
         let removeCard = document.querySelectorAll(".card")
         let row2 = document.querySelector(".row2")
         removeCard.forEach(card => {
