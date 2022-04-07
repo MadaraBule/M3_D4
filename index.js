@@ -7,17 +7,28 @@ fetch("https://striveschool-api.herokuapp.com/books", { method: "GET" })
 
         row.innerHTML = books
             .map(books => `
-                                    <div class="col-sm-4">
-                                        <div class="card">
+                                    <div class="col-sm-2">
+                                        <div id="the-books" class="card">
                                                 <img src=${books.img} class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h5 class="card-title">${books.title}</h5>
                                                     <p class="card-text">€ ${books.price}</p>
                                                     <p class="card-text">${books.category}</a>
-                                                    <button type="button" class="btn btn-light">Add to Cart</button>
-                                                    <button type="button" class="btn btn-light">Skip</button>
+                                                    <button type="button" id="addCart" class="btn btn-light">Add to Cart</button>
+                                                    <button type="button" id="skip" class="btn btn-light">Skip</button>
                                                 </div>
                                         </div>
                                     </div>`)
+        let removeCard = document.querySelectorAll(".card")
+        removeCard.forEach(card => {
+            card.addEventListener("click", function (e) {
+                if (e.target.id === "addCart") {
+                    console.log("added to cart")
+                } else if (e.target.id === "skip") {
+                    card.remove()
+                }
+            })
+        })
     })
     .catch(err => console.log(err))
+
