@@ -21,21 +21,33 @@ fetch("https://striveschool-api.herokuapp.com/books", { method: "GET" })
                                     </div>`)
             .join("")
         //search thing
-
-        //crt and skip buttons
-        let removeCard = document.querySelectorAll(".card")
-        let row2 = document.querySelector(".row2")
-        removeCard.forEach(card => {
-            card.addEventListener("click", function (e) {
-                console.log("target", e.target)
-                console.log("currentTarget", e.currentTarget)
-                if (e.target.classList.contains("addCart")) {
-                    const copy = card.cloneNode(true)
-                    row2.appendChild(copy);
-                } else if (e.target.classList.contains("skip")) {
-                    e.currentTarget.remove()
+        const search = document.querySelector("#search")
+        search.addEventListener("keyup", function (e) {
+            const searchValue = e.target.value.toLowerCase()
+            const books = document.querySelectorAll(".card-title")
+            books.forEach(book => {
+                const title = book.textContent.toLowerCase()
+                if (title.indexOf(searchValue) != -1) {
+                    book.parentElement.style.display = "block"
+                } else {
+                    book.parentElement.style.display = "none"
                 }
             })
         })
     })
-    .catch(err => console.log(err))
+
+//crt and skip buttons
+let removeCard = document.querySelectorAll(".card")
+let row2 = document.querySelector(".row2")
+removeCard.forEach(card => {
+    card.addEventListener("click", function (e) {
+        console.log("target", e.target)
+        console.log("currentTarget", e.currentTarget)
+        if (e.target.classList.contains("addCart")) {
+            const copy = card.cloneNode(true)
+            row2.appendChild(copy);
+        } else if (e.target.classList.contains("skip")) {
+            e.currentTarget.remove()
+        }
+    })
+})
